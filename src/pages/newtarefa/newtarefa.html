@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>newtarefa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="salvarTarefa(); $event.preventDefault()">
+    <ion-item>
+      <ion-label floating>Titulo Tarefa</ion-label>
+      <ion-input type="text" formControlName="titulo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prazo</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" formControlName="data" [min]="anoAtual" [max]="maxAno"></ion-datetime>
+    </ion-item>
+    <button ion-button block type="submit">Salvar</button>
+  </form>
+</ion-content>

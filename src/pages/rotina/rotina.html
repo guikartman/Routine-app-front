@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle primary>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rotinas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <div ion-item *ngFor="let rotina of rotinas">
+      <ion-thumbnail item-start>
+        <img src="../../assets/icon/rotina.png">
+      </ion-thumbnail>
+      <h2>{{ rotina.nome }}</h2>
+      <button ion-button icon-only (click)="showAlertDelete(rotina.id)">
+        <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+      </button>
+      <button ion-button item-end icon-only (click)="showTarefas(rotina)">
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+      </button>
+    </div>
+  </ion-list>
+  
+  <ion-fab bottom right >
+    <button navPush="NewrotinaPage" ion-fab mini>
+        <ion-icon name="md-add-circle"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

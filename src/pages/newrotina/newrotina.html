@@ -1,0 +1,17 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nova Rotina</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="formGroup" (ngSubmit)="salvarRotina(); $event.preventDefault()">
+    <ion-item>
+      <ion-label floating>Titulo Rotina</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <button ion-button block type="submit">Salvar</button>
+  </form>
+</ion-content>

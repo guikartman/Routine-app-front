@@ -1,0 +1,27 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ rotinaAberta.nome }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div ion-list no-border *ngFor="let tarefa of tarefas">
+      <ion-list-header style="background-color: #191919;">
+        {{ tarefa.data | date: 'EEEE - dd/MM/yyyy'}}
+      </ion-list-header>
+      <ion-item>
+        <ion-label>{{ tarefa.titulo }}</ion-label>
+        <ion-checkbox color="primary" [(ngModel)]="tarefa.executado" (ionChange)="updateTarefa(tarefa)"></ion-checkbox>
+        <button ion-button item-end icon-only (click)="openTarefa(tarefa)">
+          <ion-icon name='arrow-down'></ion-icon>
+        </button>
+      </ion-item>
+  </div>
+  <ion-fab bottom right >
+    <button (click)="adicionarTarefa()" ion-fab mini>
+        <ion-icon name="md-add-circle"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

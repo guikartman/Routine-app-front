@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button (click)="dismissModal()">
+      Voltar
+    </button>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="subtarefas.length == 0">
+    <h3>Nenhuma subtarefa adicionada!</h3>
+  </div>
+  <div ion-list no-border *ngFor="let subtarefa of subtarefas">
+    <ion-item>
+      <ion-label>{{ subtarefa.tituloSubTarefa }}</ion-label>
+      <ion-checkbox color="primary" [(ngModel)]="subtarefa.executado" (ionChange)="updateSubtarefa(subtarefa)"></ion-checkbox>
+      <button ion-button item-end icon-only (click)="deletarSubtarefa(subtarefa)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item>
+</div>
+</ion-content>
